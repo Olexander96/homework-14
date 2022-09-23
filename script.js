@@ -13,7 +13,7 @@
 
 // 3) Користувач вказує обсяг флешки в Гб. Програма повинна порахувати скільки файлів розміром в 820 Мб поміщається на флешку.
     let gb = +prompt('Вкажіть об\'єм пам\'яті на флешці в Гб', 1);
-    let mb = gb * 1000;
+    let mb = gb * 1024;
     let files = Math.floor(mb / 820);
     alert(`На флешці буде місце для ${files} файлів`);
 
@@ -23,22 +23,25 @@
     let money = +prompt('Введіть суму, в грн.', 0);
     let prise = +prompt('Введіть ціну шоколадки, в грн.', 0);
     let quatity = Math.floor(money / prise);
-    let moneyInEnd = money % prise;
+    let moneyInEnd = (money % prise).toFixed(1);
     alert(`Ви зможете купити ${quatity} шоколадок, залишок ${moneyInEnd} грн.`)
 
 // 5)Запитай у користувача тризначне число і виведи його задом наперед. Для вирішення завдання тобі знадобиться 
    //оператор % (залишок від ділення).
-    let number = prompt('Введіть трьохзначне число', 000);
-    let numberReverse = number[2] + number[1] + number[0];
+    let number = +prompt('Введіть трьохзначне число', 000);
+    let first = Math.floor(number / 100);
+    let third = number % 10;
+    let second = (number - (first * 100) - third) / 10;
+    let numberReverse = String(third) + String(second) + String(first);
     alert(numberReverse)
 
 //Максимум
 // 6) Користувач вводить суму вкладу в банк на 2 місяці, з процентною ставкою депозиту 5% річних. Вивести суму нарахованих відсотків.
-      let money1 = +prompt('Введіть сумму на 2 місяці', 0);
-      let interestForYear = 5;
-      let interestForMonth = (2 * interestForYear) / 12;
-      let moneyAfter = money1 + (money1 * (interestForMonth / 100));
-      alert(`Нараховано у відсотках ${interestForMonth.toFixed(2)}%, сума після вкладу ${moneyAfter.toFixed(1)}`);
+    let money1 = +prompt('Введіть сумму на 2 місяці', 0);
+    let interestForYear = 5;
+    let interestForMonth = (2 * interestForYear) / 12;
+    let moneyAfter = money1 + (money1 * (interestForMonth / 100));
+    alert(`Нараховано у відсотках ${interestForMonth.toFixed(2)}%, сума після вкладу ${moneyAfter.toFixed(1)}`);
 
 
 
