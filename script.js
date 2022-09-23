@@ -23,7 +23,7 @@
     let money = +prompt('Введіть суму, в грн.', 0);
     let prise = +prompt('Введіть ціну шоколадки, в грн.', 0);
     let quatity = Math.floor(money / prise);
-    let moneyInEnd = (money % prise).toFixed(1);
+    let moneyInEnd = (money % prise).toFixed(2);
     alert(`Ви зможете купити ${quatity} шоколадок, залишок ${moneyInEnd} грн.`)
 
 // 5)Запитай у користувача тризначне число і виведи його задом наперед. Для вирішення завдання тобі знадобиться 
